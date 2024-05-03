@@ -20,6 +20,11 @@ jobs:
       with:
         ruby-version: '3.1.4'
 
+    - name: Set Github bundle secrets
+      run: |
+        echo ${{ secrets.BUNDLE_GITHUB_COM }}
+        bundle config github.com ${{ secrets.BUNDLE_GITHUB_COM }}
+
     - name: Install dependencies
       run: |
         gem install bundler
